@@ -1,8 +1,8 @@
 //Create synchronous validators which check the following:
 //Contains a value: all fields
 //The value is non-empty: all fields
-//Value cannot start or end with whitespace: badgeId, username, password fields
-//Length min is 10, max is 72: password
+//Value cannot start or end with whitespace: username, password fields
+//Length min is 6, max is 72: password
 //Password confirm field should match the password field: passwordConfirm
 
 export const required = value => value ? undefined : 'Required';

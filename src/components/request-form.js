@@ -1,7 +1,8 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from './input';
-import {required, nonEmpty} from '../validators';
+// import {required, nonEmpty} from '../validators';
+//NEED TO LINK TO REQUIRES LOG IN--I CAN STILL ACCESS EVEN IF NOT LOGGED IN
 
 export class RequestForm extends React.Component {
   onSubmit(values) {
@@ -16,7 +17,7 @@ export class RequestForm extends React.Component {
           type="text" 
           component={Input} 
           id="type" 
-          validate={[required, nonEmpty]} 
+          // validate={[required, nonEmpty]} 
         />
         <label htmlFor="model">Model</label>
         <Field 
@@ -24,7 +25,7 @@ export class RequestForm extends React.Component {
           type="text" 
           component={Input} 
           id="model" 
-          validate={[required, nonEmpty]} 
+          // validate={[required, nonEmpty]} 
         />
         <label htmlFor="version">Version</label>
         <Field 
@@ -32,16 +33,16 @@ export class RequestForm extends React.Component {
           type="text" 
           component={Input} 
           id="version" 
-          validate={[required, nonEmpty]}
+          // validate={[nonEmpty]}
         />
         <label htmlFor="quantity">Quantity</label>
         <Field 
           name="quantity" 
           id="quantity" 
           type="number" 
-          value="0" 
+          // value="0" 
           component={Input} 
-          validate={[required, nonEmpty]}
+          // validate={[required, nonEmpty]}
         />
         <h3>Checkout Period:</h3>
         <label htmlFor="start date">Start Date</label>
@@ -50,7 +51,7 @@ export class RequestForm extends React.Component {
           id="start date" 
           type="date" 
           component={Input} 
-          validate={[required, nonEmpty]}
+          // validate={[required, nonEmpty]}
         />
         <label htmlFor="end date">End Date</label>
         <Field 
@@ -58,7 +59,7 @@ export class RequestForm extends React.Component {
           id="end date" 
           type="date" 
           component={Input} 
-          validate={[required, nonEmpty]}
+          // validate={[required, nonEmpty]}
         />
         <button 
           type="submit" 

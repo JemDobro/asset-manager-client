@@ -1,14 +1,27 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
+import {createAccount} from '../actions/users';
+import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, isTrimmed, length, matches} from '../validators';
-const passwordLength = length({min: 10, max: 72});
+const passwordLength = length({min: 6, max: 72});
 const matchesPassword = matches('password');
 
 export class CreateAccountForm extends React.Component {
+  onSubmit(values) {
+    const {firstName, lastName, username, badgeId, email, password} = values;
+    const user = {firstName, lastName, username, badgeId, email, password};
+    return this.props
+      .dispatch(createAccount(user))
+      .then(() => this.props.dispatch(login(username, password)));
+  }
   render() {
     return(
-      <form className="createAccount-form">
+      <form 
+        className="createAccount-form"
+        onSubmit={this.props.handleSubmit(values =>
+          this.onSubmit(values)
+        )}>
         <label htmlFor="firstName">First Name</label>
         <Field 
           name="firstName" 
@@ -23,7 +36,7 @@ export class CreateAccountForm extends React.Component {
           component={Input} 
           validate={[required, nonEmpty]}
         />
-        <label htmlFor="userName">Username</label>
+        <label htmlFor="username">Username</label>
         <Field 
           name="username" 
           type="text" 
@@ -35,7 +48,7 @@ export class CreateAccountForm extends React.Component {
           name="badgeId" 
           type="text" 
           component={Input} 
-          validate={[required, nonEmpty, isTrimmed]}
+          validate={[required, nonEmpty]}
         />
         <label htmlFor="email">Email</label>
         <Field 
