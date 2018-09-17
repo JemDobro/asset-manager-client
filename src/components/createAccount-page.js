@@ -14,7 +14,7 @@ export function CreateAccountPage(props) {
         <div className="home">
             <h2>Please create an account</h2>
             <CreateAccountForm />
-            <Link to="/">Login</Link>
+            <Link to="/">Cancel</Link>
         </div>
     );
 }

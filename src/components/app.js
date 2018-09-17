@@ -1,10 +1,9 @@
 import React from 'react'; 
-import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import CreateAccountPage from './createAccount-page';
-import RequestForm from './request-form';
+import RequestFormPage from './request-form-page';
 
 export class App extends React.Component {
   render(){
@@ -13,7 +12,7 @@ export class App extends React.Component {
         <HeaderBar />
         <Route path="/" exact component={LandingPage} />
         <Route path="/createAccount" exact component={CreateAccountPage} />
-        <Route path="/requestForm" exact component={RequestForm} />
+        <Route path="/requestForm" exact component={RequestFormPage} />
       </div>
     );
   }
