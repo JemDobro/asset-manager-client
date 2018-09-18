@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+import moment from 'moment';
 // import RequestFormPage from './request-form-page';
 
 export class Dashboard extends React.Component {
@@ -13,26 +14,40 @@ export class Dashboard extends React.Component {
   }
 
   render() {
+    function format_date(datestr) {
+      return moment(datestr).format('MMMM Do YYYY');
+    }  
+
     return (
       <div className="dashboard">
         <h2>{`Welcome ${this.props.firstName}!`}</h2>
         <button><Link to="/requestForm">Request Assets</Link></button>
         <div>
-          <h3>{`Your Dashboard includes these requests: ${this.props.protectedData}`}</h3>
-          <p>Checked out: 2</p> 
+          <h3>Your Dashboard:</h3>
+          <p>{`Checked Out: ${(this.props.protectedData.filter(req => req.status === 'checked out')).length}`}</p>
             <ul>
-              <li>Item 1</li><button>Renew</button>
-              <li>Item 2</li><button>Renew</button>
+            {(this.props.protectedData.filter(req => req.status === 'checked out')).map( req => 
+            <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
+            {`Quantity: ${req.quantity}`}<br></br>
+            {`Date Due: ${format_date(req.end)}`} <button>Renew</button></li>)}
             </ul>
-          <p>Pending: 1</p>
+          <p>{`Pending: ${(this.props.protectedData.filter(req => req.status === 'pending')).length}`}</p>
             <ul>
-            {(this.props.protectedData.filter(req => req.status === 'Pending')).map( req => <li>{req.type} - {req.model} - {req.version} </li>)}
-              <li>Pending Item 1</li>
-              <button>Edit</button><button>Cancel</button>
+            {(this.props.protectedData.filter(req => req.status === 'pending')).map( req => 
+            <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
+            {`Quantity: ${req.quantity}`}<br></br>
+            {`Start Date: ${format_date(req.start)}`}<br></br>
+            {`End Date: ${format_date(req.end)}`}<br></br>
+            <button>Edit</button><button>Cancel</button></li>)}
             </ul>
-          <p>Cancelled: 1</p>
+          <p>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</p>
             <ul>
-              <li>Cancelled Item</li><button>Resubmit</button>
+            {(this.props.protectedData.filter(req => req.status === 'cancelled')).map( req => 
+            <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
+            {`Quantity: ${req.quantity}`}<br></br>
+            {`Start Date: ${format_date(req.start)}`}<br></br>
+            {`End Date: ${format_date(req.end)}`}<br></br>
+            <button>Renew</button></li>)}
             </ul>
         </div>
       </div>
