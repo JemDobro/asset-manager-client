@@ -7,15 +7,18 @@ import {fetchProtectedData} from '../actions/protected-data';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
+    console.log(this.props);
+    return (
+    this.props.dispatch(fetchProtectedData()));
   }
+
   render() {
     return (
       <div className="dashboard">
         <h2>{`Welcome ${this.props.firstName}!`}</h2>
         <button><Link to="/requestForm">Request Assets</Link></button>
         <div>
-          <h3>Your Dashboard includes these requests: {this.props.protectedData}</h3>
+          <h3>{`Your Dashboard includes these requests: ${this.props.protectedData}`}</h3>
           <p>Checked out: 2</p> 
             <ul>
               <li>Item 1</li><button>Renew</button>
@@ -31,7 +34,6 @@ export class Dashboard extends React.Component {
               <li>Cancelled Item</li><button>Resubmit</button>
             </ul>
         </div>
-        <button>Log out</button>
       </div>
     );
   }
@@ -45,5 +47,7 @@ const mapStateToProps = state => {
     protectedData: state.protectedData.data
   };
 };
+
+
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

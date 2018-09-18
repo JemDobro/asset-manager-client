@@ -23,6 +23,26 @@ export const fetchProtectedData = () => (dispatch, getState) => {
         }
     })
         .then(res => normalizeResponseErrors(res))
+        .then(res => res.json()) 
+        // .then(res => console.log(res))
+        .then((res) => dispatch(fetchProtectedDataSuccess(res)))
+        .then (res => console.log(res))
+        .catch(err => {
+            dispatch(fetchProtectedDataError(err));
+        });
+};
+
+export const createRequest = request => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/requests/`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${authToken}`,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(request)
+    })
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
         .catch(err => {

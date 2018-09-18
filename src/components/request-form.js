@@ -2,10 +2,15 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
+import {createRequest} from '../actions/protected-data';
 
 export class RequestForm extends React.Component {
   onSubmit(values) {
+    const {type, model, version, quantity, start, end} = values;
     console.log(values);
+    const request = {type, model, version, quantity, start, end};
+    return this.props
+      .dispatch(createRequest(request));
   }
   render() {
     return (
@@ -42,18 +47,18 @@ export class RequestForm extends React.Component {
           validate={[required, nonEmpty]}
         />
         <h3>Checkout Period:</h3>
-        <label htmlFor="start date">Start Date</label>
+        <label htmlFor="start">Start Date</label>
         <Field 
-          name="start date" 
-          id="start date" 
+          name="start" 
+          id="start" 
           type="date" 
           component={Input} 
           validate={[required, nonEmpty]}
         />
-        <label htmlFor="end date">End Date</label>
+        <label htmlFor="end">End Date</label>
         <Field 
-          name="end date" 
-          id="end date" 
+          name="end" 
+          id="end" 
           type="date" 
           component={Input} 
           validate={[required, nonEmpty]}
