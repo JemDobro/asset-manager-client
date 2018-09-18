@@ -26,6 +26,7 @@ export class Dashboard extends React.Component {
             </ul>
           <p>Pending: 1</p>
             <ul>
+            {(this.props.protectedData.filter(req => req.status === 'Pending')).map( req => <li>{req.type} - {req.model} - {req.version} </li>)}
               <li>Pending Item 1</li>
               <button>Edit</button><button>Cancel</button>
             </ul>

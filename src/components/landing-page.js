@@ -7,7 +7,7 @@ import LoginForm from './login-form';
 
 export function LandingPage(props) {
   if (props.loggedIn) {
-    return <Dashboard />;
+    return <Dashboard protectedData={[]}/>;
 }
   return (
     <div className="home">
