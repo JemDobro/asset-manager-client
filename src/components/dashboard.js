@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+import {fetchProtectedData, cancelRequest, resubmitRequest} from '../actions/protected-data';
 import moment from 'moment';
 // import RequestFormPage from './request-form-page';
 
@@ -10,12 +10,12 @@ export class Dashboard extends React.Component {
   componentDidMount() {
     console.log(this.props);
     return (
-    this.props.dispatch(fetchProtectedData()));
+    this.props.dispatch(fetchProtectedData()));    
   }
 
   render() {
     function format_date(datestr) {
-      return moment(datestr).format('MMMM Do YYYY');
+      return moment.utc(datestr).format('MMMM Do YYYY');
     }  
 
     return (
@@ -38,7 +38,7 @@ export class Dashboard extends React.Component {
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button>Edit</button><button>Cancel</button></li>)}
+            <button>Edit</button><button onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
             </ul>
           <p>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</p>
             <ul>
@@ -47,7 +47,7 @@ export class Dashboard extends React.Component {
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button>Renew</button></li>)}
+            <button onClick={() => this.props.dispatch(resubmitRequest(req.id))}>Resubmit</button></li>)}
             </ul>
         </div>
       </div>
