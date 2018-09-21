@@ -18,25 +18,33 @@ The app houses the header-bar, the landing page, the create account page, and th
 The landing page houses the login form, and the dashboard.
 
 ###App opens with always visible header and log in form/create account
+
 ![Login](img/Login.PNG)
 
 ###Successfully creating account will automatically log user in, log out button will appear in header
+
 ![CreateAccount](img/CreateAccount.PNG)
 
 ###Successful login opens dashboard
+
 ![Dashboard](img/Dashboard1.PNG)
 
 ###Clicking Request Assets opens request form
+
 ![RequestForm](img/RequestForm.PNG)
 
 ###Fill out request form and submit will add request to dashboard with a pending status
+
 ![FilledRequestForm](img/FilledRequestForm.PNG)
 
 ###Dashboard with new request added
+
 ![DashboardPostRequest](img/DashboardPostRequest.PNG)
 
-###Clicking cancel on pending request will cancel the request
+###Clicking cancel on pending request will cancel the 
+
 ![DashboardPostCancel](img/DashboardPostCancel.PNG)
 
 ###Clicking resubmit on cancelled request will resubmit the request
+
 ![DashboardPostResubmit](img/DashboardPostResubmit.PNG)
