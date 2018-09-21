@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
+import './request-form-page.css';
 
 import RequestForm from './request-form';
 
@@ -10,7 +11,7 @@ export function RequestFormPage(props) {
         <div className="home">
             <h2>{`What would you like to request ${props.firstName}?`}</h2>
             <RequestForm />
-            <Link to="/">Cancel</Link>
+            <p><Link to="/">Return to Dashboard</Link></p>
         </div>
     );
 }

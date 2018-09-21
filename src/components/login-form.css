@@ -18,7 +18,7 @@ a{
   color: rgba(255, 230, 0, 0.897);
 }
 
-/* button {
+button {
   background-color: rgb(245, 162, 7);
   color: white;
   padding: 10px 16px;
@@ -26,9 +26,9 @@ a{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-} */
+}
 
-/* input, button {
+input, button {
   width: 18.75rem;
   height: 3.125rem;
   line-height: 100%;
@@ -42,12 +42,12 @@ a{
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-} */
+}
 
-/* label {
+label {
   font: arial;
   font-size: 1.3em;
   color: rgb(245, 162, 7);
   -webkit-text-stroke-width: .2px;
   -webkit-text-stroke-color: rgba(245, 162, 7, 0.322);
-} */
+}
