@@ -29,7 +29,7 @@ export class Dashboard extends React.Component {
             {(this.props.protectedData.filter(req => req.status === 'checked out')).map( req => 
             <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
-            {`Date Due: ${format_date(req.end)}`} <button>Renew</button></li>)}
+            {`Date Due: ${format_date(req.end)}`} </li>)}
             </ul>
           <p>{`Pending: ${(this.props.protectedData.filter(req => req.status === 'pending')).length}`}</p>
             <ul>
@@ -38,7 +38,7 @@ export class Dashboard extends React.Component {
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button>Edit</button><button onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
+            <button onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
             </ul>
           <p>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</p>
             <ul>
