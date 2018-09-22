@@ -19,7 +19,7 @@ The landing page houses the login form, and the dashboard.
 
 ###App opens with always visible header and log in form/create account
 
-![Login](img/Login.PNG)
+![Login](img/LogIn.PNG)
 
 ###Successfully creating account will automatically log user in, log out button will appear in header
 
