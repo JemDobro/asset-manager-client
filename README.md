@@ -1,15 +1,25 @@
-#Asset Inventory Manager
+# Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own. 
 
-#Link to Deployed Version:
+## Link to Deployed Version:
 https://asset-manager-jem.herokuapp.com/
 
-#Tech Stack:
-React for the frontend
-Redux for state management
-Node/Express for the backend
-MongoDB/Mongoose for the database
-JWTs for authentication
+## Tech Stack:
+### Frontend
+
+  * HTML5
+  * CSS3
+  * JavaScript
+  * React
+  * Redux
+  * Deployed to Heroku
+
+### Backend
+
+  * Node/Express
+  * MongoDB/Mongoose/mLab
+  * JWTs for authentication
+  * Deployed to Heroku
 
 This is the frontend for this app.  The backend can be found here: https://github.com/JemDobro/asset-manager-server.
 
@@ -17,34 +27,44 @@ All components live in the src directory.
 The app houses the header-bar, the landing page, the create account page, and the request page.  The header-bar is always visible.
 The landing page houses the login form, and the dashboard.
 
-###App opens with always visible header and log in form/create account
+## Screenshots:
+### App opens with always visible header and log in form/create account
 
 ![Login](img/LogIn.PNG)
 
-###Successfully creating account will automatically log user in, log out button will appear in header
+### Successfully creating account will automatically log user in, log out button will appear in header
 
 ![CreateAccount](img/CreateAccount.PNG)
 
-###Successful login opens dashboard
+### Successful login opens dashboard
 
 ![Dashboard](img/Dashboard1.PNG)
 
-###Clicking Request Assets opens request form
+### Clicking Request Assets opens request form
 
 ![RequestForm](img/RequestForm.PNG)
 
-###Fill out request form and submit will add request to dashboard with a pending status
+### Fill out request form and submit will add request to dashboard with a pending status
 
 ![FilledRequestForm](img/FilledRequestForm.PNG)
 
-###Dashboard with new request added
+### Dashboard with new request added
 
 ![DashboardPostRequest](img/DashboardPostRequest.PNG)
 
-###Clicking cancel on pending request will cancel the 
+### Clicking cancel on pending request will cancel the 
 
 ![DashboardPostCancel](img/DashboardPostCancel.PNG)
 
-###Clicking resubmit on cancelled request will resubmit the request
+### Clicking resubmit on cancelled request will resubmit the request
 
 ![DashboardPostResubmit](img/DashboardPostResubmit.PNG)
+
+## To Do
+
+  * Add nicer validation messages for user when filling in form and they miss a required field, etc.
+  * Request form: drop downs of available items would be nice and remove errors
+  * Date picker currently allows dates in the past to be chosen, and end date can be before start date--need some restrictions here
+  * Submit button needs to give confirmation that submission was successful, and give user option to submit again by editing current info in form or clear form to start brand new
+  * Improve design
+  * Add ability to edit a pending request, for example to change the dates asset is needed

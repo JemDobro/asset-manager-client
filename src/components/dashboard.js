@@ -4,11 +4,9 @@ import {Link} from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData, cancelRequest, resubmitRequest} from '../actions/protected-data';
 import moment from 'moment';
-// import RequestFormPage from './request-form-page';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     return (
     this.props.dispatch(fetchProtectedData()));    
   }
