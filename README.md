@@ -27,6 +27,7 @@ All components live in the src directory.
 The app houses the header-bar, the landing page, the create account page, and the request page.  The header-bar is always visible.
 The landing page houses the login form, and the dashboard.
 
+## Screenshots:
 ### App opens with always visible header and log in form/create account
 
 ![Login](img/LogIn.PNG)
