@@ -5,11 +5,21 @@ An app to simplify and automate the inventory management of the hardware assets 
 https://asset-manager-jem.herokuapp.com/
 
 ## Tech Stack:
-React for the frontend
-Redux for state management
-Node/Express for the backend
-MongoDB/Mongoose for the database
-JWTs for authentication
+### Frontend
+
+  * HTML5
+  * CSS3
+  * JavaScript
+  * React
+  * Redux
+  * Deployed to Heroku
+
+### Backend
+
+  * Node/Express
+  * MongoDB/Mongoose/mLab
+  * JWTs for authentication
+  * Deployed to Heroku
 
 This is the frontend for this app.  The backend can be found here: https://github.com/JemDobro/asset-manager-server.
 
