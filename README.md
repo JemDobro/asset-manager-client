@@ -59,3 +59,12 @@ The landing page houses the login form, and the dashboard.
 ### Clicking resubmit on cancelled request will resubmit the request
 
 ![DashboardPostResubmit](img/DashboardPostResubmit.PNG)
+
+## To Do
+
+  * Add nicer validation messages for user when filling in form and they miss a required field, etc.
+  * Request form: drop downs of available items would be nice and remove errors
+  * Date picker currently allows dates in the past to be chosen, and end date can be before start date--need some restrictions here
+  * Submit button needs to give confirmation that submission was successful, and give user option to submit again by editing current info in form or clear form to start brand new
+  * Improve design
+  * Add ability to edit a pending request, for example to change the dates asset is needed
