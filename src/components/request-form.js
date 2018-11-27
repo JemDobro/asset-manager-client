@@ -7,7 +7,6 @@ import {createRequest} from '../actions/protected-data';
 export class RequestForm extends React.Component {
   onSubmit(values) {
     const {type, model, version, quantity, start, end} = values;
-    console.log(values);
     const request = {type, model, version, quantity, start, end};
     return this.props
       .dispatch(createRequest(request));
