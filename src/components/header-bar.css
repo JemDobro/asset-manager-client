@@ -1,14 +1,13 @@
 button.logout {
-  width: 7rem;
-  height: 2rem;
-  line-height: 100%;
-  display: block;
-  padding: 0.8em;
-  margin: 0.8rem auto 0;
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 100%;  
   background:rgba(160, 169, 179, 0.973);
   color: white;
-  font-size: .8em;
-  text-align: center;
+  font-size: 16px;
   border: solid 1px #1f253d;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
