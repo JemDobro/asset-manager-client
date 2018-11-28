@@ -17,6 +17,7 @@ h1, label {
   color: rgb(245, 162, 7);
 }
 
-a{
+a {
   color: rgba(255, 230, 0, 0.897);
+  text-decoration: none;
 }
