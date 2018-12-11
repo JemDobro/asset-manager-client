@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Assistant', sans-serif;
+  color: white;
+  background-color: rgb(83, 134, 60);
+}
+
+html, body, #root, .app, img {
+  display: flex;
+  flex-direction: column;
+  width: 100%;   
+  /* justify-content: center; */
+  line-height: 1.5;
+} 
+
+main {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-content: center; */
+  padding: 10px 20px;
+  margin-bottom: 50px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* align-self: center; */
+  width: 100%;
+  padding: 10px;
+}
+
+h1, label {
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(14, 14, 75);
+}
+p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 60px;
+  width: 100%;
+}
+
+.form-error {
+  color: rgb(14, 14, 75);
+}
+
+/* button.logout {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 100%;  
+  background:rgba(160, 169, 179, 0.973);
+  color: white;
+  font-size: 16px;
+  border: solid 1px #1f253d;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+} */
+
+
+@media screen and (min-width: 1024px){
+  main {
+    font-size: 1.5vw;
+  } 
+}
+
+@media screen and (max-width: 700px){
+  main {
+    flex-direction: column;
+    align-content: center;
+  } 
+  form {
+    padding: 0px;
+  }
+}

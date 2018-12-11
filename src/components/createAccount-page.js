@@ -11,11 +11,15 @@ export function CreateAccountPage(props) {
         return <Redirect to="/" />;
     }
     return (
-        <div className="home">
-            <h2>Please create an account</h2>
-            <CreateAccountForm />
-            <Link to="/">Cancel</Link>
-        </div>
+        <main>
+            <section className="intro">
+                <h2>Please create an account</h2>
+            </section>
+            <section>
+                <CreateAccountForm />
+                <p class="text-center">Already have an account? Go to the <Link to="/login">login page</Link></p>
+            </section>
+        </main>
     );
 }
 

@@ -1,11 +1,13 @@
 import {
   FETCH_PROTECTED_DATA_SUCCESS,
-  FETCH_PROTECTED_DATA_ERROR
+  FETCH_PROTECTED_DATA_ERROR,
+  TOGGLE_REQUESTING_ASSETS
 } from '../actions/protected-data';
 
 const initialState = {
   data: [],
-  error: null
+  error: null,
+  requesting: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -17,6 +19,10 @@ export default function reducer(state = initialState, action) {
   } else if (action.type === FETCH_PROTECTED_DATA_ERROR) {
     return Object.assign({}, state, {
       error: action.error
+    });
+  } else if (action.type === TOGGLE_REQUESTING_ASSETS) {
+    return Object.assign({}, state, {
+      requesting: !(state.requesting)
     });
   }
   return state;

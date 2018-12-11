@@ -2,14 +2,15 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
-import {createRequest} from '../actions/protected-data';
+import {createRequest, toggleRequestingAssets} from '../actions/protected-data';
 
 export class RequestForm extends React.Component {
   onSubmit(values) {
     const {type, model, version, quantity, start, end} = values;
     const request = {type, model, version, quantity, start, end};
     return this.props
-      .dispatch(createRequest(request));
+      .dispatch(createRequest(request))
+      .then(() => this.props.dispatch(toggleRequestingAssets()));
   }
   render() {
     return (

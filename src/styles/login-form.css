@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -10,16 +10,16 @@ body {
   padding-left: 30;
   font-family: sans-serif;
   color: white;
-  background-color: rgb(80,89,123);
-}
+  background-color: rgb(83, 134, 60);
+} */
 
-h1 {
+/* h1 {
   color: rgb(245, 162, 7);
-}
+} */
 
-a{
+/* a{
   color: rgba(255, 230, 0, 0.897);
-}
+} */
 
 input, button {
   all: unset;
@@ -27,16 +27,16 @@ input, button {
   justify-content: center;
   align-items: center;
   margin:10px 0px;
-  padding-left: 10px;
   height: 40px;
   width: 100%;  
-  background:rgba(160, 169, 179, 0.973);
-  color: white;
+  background:white;
+  color: rgb(14, 14, 75);
   font-size: 16px;
-  border: solid 1px #1f253d;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
+  font-weight: bold;
+  border: solid 1px  rgb(14, 14, 75);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .form-input {
@@ -45,7 +45,19 @@ input, button {
 }
 
 button {
-  margin-top: 40px;
+  margin-top: 30px;
+  width: 50%;
+  height: 30px;
+  align-self: center;
+}
+
+button:hover {
+  background-color: rgb(14, 14, 75);
+  color: white;
+}
+
+.text-center {
+  text-align: center;
 }
 
 

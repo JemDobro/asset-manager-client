@@ -13,6 +13,11 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
+export const TOGGLE_REQUESTING_ASSETS = 'TOGGLE_REQUESTING_ASSETS';
+export const toggleRequestingAssets = () => ({
+    type: TOGGLE_REQUESTING_ASSETS
+});
+
 export const fetchProtectedData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/requests/`, {
@@ -41,12 +46,20 @@ export const createRequest = request => (dispatch, getState) => {
         body: JSON.stringify(request)
     })
         .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then((res) => dispatch(fetchProtectedDataSuccess([res])))
-        .catch(err => {
-            dispatch(fetchProtectedDataError(err));
-        });
-}; 
+        .then(fetch(`${API_BASE_URL}/requests/`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${authToken}`
+            }
+        })
+            .then(res => normalizeResponseErrors(res))
+            .then(res => res.json()) 
+            .then((res) => dispatch(fetchProtectedDataSuccess(res)))
+            .catch(err => {
+                dispatch(fetchProtectedDataError(err));
+            })
+        )
+    };
 
 export const cancelRequest = id => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
