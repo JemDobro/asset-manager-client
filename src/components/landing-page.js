@@ -1,17 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import '../styles/landingPage.css';
 import {Link} from 'react-router-dom';
 
 import Dashboard from './dashboard';
-import LoginForm from './login-form';
+import '../styles/landingPage.css';
 
 export function LandingPage(props) {
   if (props.loggedIn) {
     return <Dashboard protectedData={[]}/>;
 }
   return (
-    <main className="landing-page-main">
+    <main className="landing-page-main" role="main">
       <section className="intro">
         <h2>Welcome!</h2>
         <h3>Asset Inventory Manager is your tool for requesting and managing any hardware needed to complete your work.</h3>

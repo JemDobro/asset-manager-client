@@ -3,6 +3,7 @@ import {reduxForm, Field} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import {createRequest, toggleRequestingAssets} from '../actions/protected-data';
+import '../styles/requestForm.css';
 
 export class RequestForm extends React.Component {
   onSubmit(values) {
@@ -46,7 +47,7 @@ export class RequestForm extends React.Component {
           component={Input} 
           validate={[required, nonEmpty]}
         />
-        <h3>Checkout Period:</h3>
+        <h3 className="dates">Checkout Period:</h3>
         <label htmlFor="start">Start Date</label>
         <Field 
           name="start" 
@@ -67,6 +68,10 @@ export class RequestForm extends React.Component {
           type="submit" 
           disabled={this.props.pristine || this.props.submitting}>
           Submit
+        </button>
+        <button className="cancel-btn"
+          onClick={() => this.props.dispatch(toggleRequestingAssets())}>
+          Cancel
         </button>
       </form>
     );

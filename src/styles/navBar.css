@@ -21,13 +21,15 @@ nav {
 
 .logo {
   align-self: center;
+  padding: 4px 0px;
   font-size: 1.4em;
   line-height: 1.15;
 }
 
-.full-nav-ul {
+ul.full-nav-ul {
   display: flex;
   flex-direction: row;
+  padding: 0px;
 }
 
 li {
@@ -38,10 +40,10 @@ li {
 }
 
 @media screen and (max-width: 500px){
-  .logo, .full-nav-ul {
+  .logo {
     font-size: 5vw;
   }
-  .full-nav-ul {
+  ul.full-nav-ul {
     font-size: 3vw;
     flex-direction: column;
     justify-content: center;

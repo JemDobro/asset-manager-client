@@ -1,13 +1,10 @@
 import React from 'react';
 import '../styles/headerBar.css';
 
-export default class HeaderBar extends React.Component {
-  
-  render() {
+export default function HeaderBar(props) {  
     return (
-      <div className="header-bar">
+      <header className="header-bar" role="banner">
         <img className='header-bar-img' src='https://res.cloudinary.com/cozyspaces/image/upload/v1544465885/multi_ipad_dock.jpg' alt='multiple organized ipads' />
-      </div>
+      </header>
     );
-  }
 }

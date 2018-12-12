@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import requiresLogin from './requires-login';
 import {fetchProtectedData, cancelRequest, resubmitRequest, toggleRequestingAssets} from '../actions/protected-data';
 import RequestFormPage from './request-form-page';
@@ -18,22 +17,28 @@ export class Dashboard extends React.Component {
       return moment.utc(datestr).format('MMMM Do YYYY');
     }  
 
-    let requestForm;
+    let intro;
     if (this.props.requesting) {
-      requestForm = (
-        <RequestFormPage />
-      );
-    }
-
-    return (
-      <main className="dashboard">
+      intro = (
+        <section className="intro">
+          <RequestFormPage />
+          <h2>{`Your current dashboard:`}</h2>
+        </section>
+      )
+    } else {
+      intro = (
         <section className="intro">
           <h2>{`Welcome to your dashboard ${this.props.firstName}!`}</h2>
           <button className="request-assets-btn" onClick={() => this.props.dispatch(toggleRequestingAssets())}>Request Assets</button>
-          {requestForm}
         </section>
+      )
+    }
+
+    return (
+      <main className="dashboard" role="main">
+        {intro}
         <section className="status">
-          <p>{`Checked Out: ${(this.props.protectedData.filter(req => req.status === 'checked out')).length}`}</p>
+          <h3>{`Checked Out: ${(this.props.protectedData.filter(req => req.status === 'checked out')).length}`}</h3>
             <ul>
             {(this.props.protectedData.filter(req => req.status === 'checked out')).map( req => 
             <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
@@ -42,25 +47,25 @@ export class Dashboard extends React.Component {
             </ul>
         </section>
         <section className="status">
-          <p>{`Pending: ${(this.props.protectedData.filter(req => req.status === 'pending')).length}`}</p>
+          <h3>{`Pending: ${(this.props.protectedData.filter(req => req.status === 'pending')).length}`}</h3>
             <ul className='with-btns'>
             {(this.props.protectedData.filter(req => req.status === 'pending')).map( req => 
             <li className='with-btns' key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button className="request-assets-btn" onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
+            <button className="request-assets-btn-li" onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
             </ul>
         </section>
         <section className="status">
-          <p>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</p>
+          <h3>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</h3>
             <ul className='with-btns'>
             {(this.props.protectedData.filter(req => req.status === 'cancelled')).map( req => 
             <li className='with-btns' key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button className="request-assets-btn" onClick={() => this.props.dispatch(resubmitRequest(req.id))}>Resubmit</button></li>)}
+            <button className="request-assets-btn-li" onClick={() => this.props.dispatch(resubmitRequest(req.id))}>Resubmit</button></li>)}
             </ul>
         </section>
       </main>
@@ -77,7 +82,5 @@ const mapStateToProps = state => {
     requesting: state.protectedData.requesting
   };
 };
-
-
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));

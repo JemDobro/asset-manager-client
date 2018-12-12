@@ -10,15 +10,12 @@ html, body, #root, .app, img {
   display: flex;
   flex-direction: column;
   width: 100%;   
-  /* justify-content: center; */
   line-height: 1.5;
 } 
 
 main {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-content: center; */
   padding: 10px 20px;
   margin-bottom: 50px;
 }
@@ -26,9 +23,6 @@ main {
 section {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-content: center; */
-  /* align-self: center; */
   width: 100%;
   padding: 10px;
 }
@@ -61,23 +55,6 @@ form {
   color: rgb(14, 14, 75);
 }
 
-/* button.logout {
-  all: unset;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20px;
-  width: 100%;  
-  background:rgba(160, 169, 179, 0.973);
-  color: white;
-  font-size: 16px;
-  border: solid 1px #1f253d;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-} */
-
-
 @media screen and (min-width: 1024px){
   main {
     font-size: 1.5vw;
@@ -88,6 +65,7 @@ form {
   main {
     flex-direction: column;
     align-content: center;
+    padding: 10px;
   } 
   form {
     padding: 0px;

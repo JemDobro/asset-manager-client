@@ -11,13 +11,18 @@ export function CreateAccountPage(props) {
         return <Redirect to="/" />;
     }
     return (
-        <main>
+        <main role="main">
             <section className="intro">
                 <h2>Please create an account</h2>
             </section>
             <section>
                 <CreateAccountForm />
-                <p class="text-center">Already have an account? Go to the <Link to="/login">login page</Link></p>
+            </section>
+            <section className="text-center">
+                <p>Already have an account? Go to the <Link to="/login">login page</Link></p>
+            </section>
+            <section className="text-center">
+                <p>Looking to get back to where you started?  Go to the <Link to="/">landing page</Link></p>
             </section>
         </main>
     );
