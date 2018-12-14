@@ -13,10 +13,14 @@ html, body, #root, .app, img {
   line-height: 1.5;
 } 
 
+.app {
+  z-index: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 50px;
 }
 
@@ -27,10 +31,6 @@ section {
   padding: 10px;
 }
 
-h1, label {
-  color: white;
-}
-
 a {
   color: white;
   text-decoration: none;
@@ -39,6 +39,7 @@ a {
 a:hover {
   color: rgb(14, 14, 75);
 }
+
 p {
   text-align: center;
 }
@@ -47,27 +48,73 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px 60px;
   width: 100%;
 }
 
+label {
+  line-height: 1.15;
+  margin-top: 10px;
+}
+
 .form-error {
+  color: white;
+  text-align: center;
+  background-color: rgb(14, 14, 75);
+  border: 1px solid rgb(14, 14, 75);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3x;
+  border-radius: 3px;
+}
+
+input, button {
+  background:white;
   color: rgb(14, 14, 75);
+  border: 1px solid rgb(14, 14, 75);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3x;
+  border-radius: 3px;
+}
+
+input {
+  width: 100%;
+  text-indent: 6px;
+  font-weight: bold;
+}
+
+input:focus {
+  outline: 2px solid rgb(14, 14, 75);
+}
+
+button {
+  width: 50%;
+  align-self: center;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: rgb(14, 14, 75);
+  color: white;
+}
+
+@media screen and (min-width: 600px){
+  form {
+    width: 75%;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 700px){
+  main {
+    padding: 10px 20px;
+  } 
+  form {
+    width: 50%;
+  }
 }
 
 @media screen and (min-width: 1024px){
-  main {
+  main, nav {
     font-size: 1.5vw;
   } 
-}
-
-@media screen and (max-width: 700px){
-  main {
-    flex-direction: column;
-    align-content: center;
-    padding: 10px;
-  } 
-  form {
-    padding: 0px;
-  }
 }

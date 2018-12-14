@@ -34,7 +34,7 @@ export class NavBar extends React.Component {
 
     return (
       <nav role="navigation">
-        <div className="logo-group">
+        <div className="logo">
           <img className="icon" src="https://res.cloudinary.com/cozyspaces/image/upload/c_scale,h_55/v1544484708/aim-icon.png" alt="Assett Inventory Manager Icon" />
           <a href="https://asset-manager-jem.herokuapp.com/" className='logo'>Asset Inventory Manager</a>
         </div>

@@ -14,21 +14,18 @@ nav {
   width: 53px;
 }
 
-.logo-group {
-  display: flex;
-  flex-direction: row; 
-}
-
 .logo {
+  display: flex;
+  flex-direction: row;
   align-self: center;
-  padding: 4px 0px;
-  font-size: 1.4em;
-  line-height: 1.15;
+  font-size: 5vw;
 }
 
 ul.full-nav-ul {
+  font-size: 3vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   padding: 0px;
 }
 
@@ -39,13 +36,12 @@ li {
   line-height: 1.15;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (min-width: 500px){
   .logo {
-    font-size: 5vw;
+    font-size: 1.2em;
   }
-  ul.full-nav-ul {
-    font-size: 3vw;
-    flex-direction: column;
-    justify-content: center;
+   ul.full-nav-ul {
+    flex-direction: row;
+    font-size: 1.2em;
   }
 }

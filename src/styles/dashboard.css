@@ -2,49 +2,30 @@ h2 {
   padding: 0px;
 }
 
-button.request-assets-btn, button.request-assets-btn-li {
-  all: unset;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-self: center;
-  height: auto;
-  min-width: 30%;
-  padding: 0px 4px;
-  background:white;
-  color:rgb(14, 14, 75);
-  border: solid 1px #1f253d;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3x;
-  border-radius: 3px;
+button.request-assets-btn{
+  width: 75%;
 }
 
 button.request-assets-btn-li {
-  align-self: flex-end;
   width: 100%;
-  padding: 0px;
+  margin: 0px;
   background:rgb(14, 14, 75);
   color: white;
+  font-weight: 400;
 }
 
 button.request-assets-btn-li:hover {
-  background: rgb(83, 134, 60);
-  color: white;
-}
-
-li.with-btns {
-  display: flex;
-  flex-direction: column;
+  border-color: rgb(83, 134, 60);
+  background-color: white;
+  color: rgb(14, 14, 75);
 }
 
 ul{
   list-style-type: none;
 }
-
 .status ul {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  flex-direction: column;
   padding: 0px;
   background-color: white;
   color:  rgb(14, 14, 75);
@@ -57,30 +38,33 @@ ul{
 .status li{
   background-color: white;
   color:  rgb(14, 14, 75);
-  min-width: 24%;
+  width: 75%;
   padding: 10px;
   margin: 5px 1px;
-  border: 1px rgb(83, 134, 60) solid;
+  border: 2px rgb(56, 92, 40) solid;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2x;
+  border-radius: 2px;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (min-width: 600px){
   .status ul {
-    flex-direction: column;
-    align-content: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
   } 
   .status li {
-    width: 75%;
+    max-width: 49%;
   }
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (min-width: 800px){
   .status li {
-    min-width: 33%;
+    max-width: 33%;
   }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (min-width: 1024px){
   .status li {
-    min-width: 49%;
+    max-width: 24%;
   }
 }
