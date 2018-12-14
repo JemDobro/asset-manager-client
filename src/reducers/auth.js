@@ -10,6 +10,7 @@ const initialState = {
   authToken: null, // authToken !== null does not mean it has been validated
   currentUser: null,
   loading: false,
+  requesting: false,
   error: null
 };
 
@@ -38,6 +39,6 @@ export default function reducer(state = initialState, action) {
           loading: false,
           error: action.error
       });
-  }
+  } 
   return state;
 }

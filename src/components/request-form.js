@@ -11,7 +11,6 @@ export class RequestForm extends React.Component {
     const request = {type, model, version, quantity, start, end};
     return this.props
       .dispatch(createRequest(request))
-      .then(() => this.props.dispatch(toggleRequestingAssets()));
   }
   render() {
     return (

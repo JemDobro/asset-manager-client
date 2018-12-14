@@ -114,7 +114,7 @@ button:hover {
 }
 
 @media screen and (min-width: 1024px){
-  main, nav {
+  main {
     font-size: 1.5vw;
   } 
 }

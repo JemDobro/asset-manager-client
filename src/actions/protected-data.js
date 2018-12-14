@@ -54,7 +54,7 @@ export const createRequest = request => (dispatch, getState) => {
         })
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json()) 
-            .then((res) => dispatch(fetchProtectedDataSuccess(res)))
+            .then((data) => dispatch(fetchProtectedDataSuccess(data)))
             .catch(err => {
                 dispatch(fetchProtectedDataError(err));
             })
