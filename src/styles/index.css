@@ -92,7 +92,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+button:hover:enabled {
   background-color: rgb(14, 14, 75);
   color: white;
 }

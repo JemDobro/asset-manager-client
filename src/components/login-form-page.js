@@ -7,7 +7,7 @@ import LoginForm from './login-form';
 export function LoginFormPage(props) {
   // If we are logged in redirect to the user's dashboard
   if (props.loggedIn) {
-      return <Redirect to="/" />;
+    return <Redirect to="/" />;
   }
   return (
     <main role="main">
@@ -31,7 +31,7 @@ export function LoginFormPage(props) {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(LoginFormPage);

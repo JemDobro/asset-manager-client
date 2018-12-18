@@ -1,8 +1,8 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm, Field, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
-import {createRequest, toggleRequestingAssets} from '../actions/protected-data';
+import {fetchRequests, createRequest, toggleRequestingAssets} from '../actions/requests';
 import '../styles/requestForm.css';
 
 export class RequestForm extends React.Component {
@@ -11,10 +11,30 @@ export class RequestForm extends React.Component {
     const request = {type, model, version, quantity, start, end};
     return this.props
       .dispatch(createRequest(request))
+      .then(() => this.props.dispatch(fetchRequests()));
   }
   render() {
+    let error;
+    if (this.props.error) {
+      error = (
+        <div className="form-error" aria-live="polite">
+          {this.props.error}
+        </div>
+      );
+    }
+    let success;
+    if (this.props.submitSucceeded) {
+      success = (
+        <div className="form-success" aria-live="polite">
+          <p>Information submitted successfully</p>
+        </div>
+      )
+    }
     return (
-      <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+      <form 
+        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        {error}
+        {success}
         <label htmlFor="type">Type</label>
         <Field 
           name="type" 
@@ -78,5 +98,7 @@ export class RequestForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'request'
+  form: 'request',
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('request', Object.keys(errors)[0]))
 })(RequestForm);

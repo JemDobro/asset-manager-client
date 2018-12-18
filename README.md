@@ -1,8 +1,21 @@
+![Asset Manager Logo][logo]
+
+[logo]: img/icon-left-font-cropped-readme.png
+
 # Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own. 
 
 ## Link to Deployed Version:
 https://asset-manager-jem.herokuapp.com/
+
+## Screenshots
+| <img alt="Landing Page" src="img/LandingPage.PNG" width="350"> | <img alt="Registration" src="img/Registration.PNG" width="350"> | <img alt="LogIn" src="img/LogIn.PNG" width="350"> |
+|:---:|:---:|:---:|
+| Landing Page | Registration | Login |
+
+| <img alt="Dashboard" src="img/Dashboard.PNG" width="350"> | <img alt="Request Assets" src="img/RequestAssets.PNG" width="350"> | <img alt="Request Assets Dashboard" src="img/RequestAssetsDashboard.PNG" width="350"> |
+|:---:|:---:|:---:|
+| Dashboard | Request Assets | Request Assets with Dashboard |
 
 ## Tech Stack:
 ### Frontend
@@ -24,7 +37,8 @@ https://asset-manager-jem.herokuapp.com/
 This is the frontend for this app.  The backend can be found here: https://github.com/JemDobro/asset-manager-server.
 
 All components live in the src directory. 
-The app houses the header-bar, the landing page, the create account page, and the request page.  The header-bar is always visible.
+The app houses the navigation bar, header, the landing page, the create account page, the request page, and the footer.  
+The navigation bar, header, and footer are always visible.
 The landing page houses the login form, and the dashboard.
 
 ## Screenshots:

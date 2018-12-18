@@ -7,7 +7,7 @@ import '../styles/landingPage.css';
 
 export function LandingPage(props) {
   if (props.loggedIn) {
-    return <Dashboard protectedData={[]}/>;
+    return <Dashboard requests={[]}/>;
 }
   return (
     <main className="landing-page-main" role="main">
