@@ -5,13 +5,13 @@
 # Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own.  Requestors can also cancel pending requests they no longer need, and resubmit cancelled requests should they discover they will be needing the asset after all.
 
-**_[Live Demo](https://asset-manager-jem.herokuapp.com/ "Asset Inventory Manager")_**
+### **_[Live Demo](https://asset-manager-jem.herokuapp.com/ "Asset Inventory Manager")_**
 
-Demo account:
-username: sallysomeone
-password: 666666
+#### Demo account:
+##### username: sallysomeone
+##### password: 666666
 
-##V1 Feature List
+## V1 Feature List
  * Users are first taken to an introductory landing page where they will find instructions and links to create an account or login.
  * Users will be automatically logged in upon successful account creation, and once logged in they are taken to their dashboard.
  * Users can see all assets they have requested and the status of each asset.
@@ -53,12 +53,17 @@ password: 666666
   * JWTs for authentication
   * Deployed to Heroku
 
-This is the frontend for this app.  **_[The backend can be found here](https://github.com/JemDobro/asset-manager-server/ "Asset Inventory Manager Backend")_**
+This is the frontend for this app.  **_[The backend can be found here.](https://github.com/JemDobro/asset-manager-server/ "Asset Inventory Manager Backend")_**
 
 All components live in the src directory. 
+
 The app houses the navigation bar, header, the landing page, the create account page, the login page, and the footer.  
+
 The landing page houses the dashboard.
+
 The dashboard houses the request page, which is only visible if the user is requesting assets.
+
 The navigation bar and header are always visible.
+
 The footer is always visible at the very bottom.
 
