@@ -79,7 +79,6 @@ export const fetchRequests = () => (dispatch, getState) => {
   return fetch(`${API_BASE_URL}/requests/`, {
     method: 'GET',
     headers: {
-      // Provide our auth token as credentials
       Authorization: `Bearer ${authToken}`
     }
   })
@@ -90,7 +89,6 @@ export const fetchRequests = () => (dispatch, getState) => {
       const {reason, message, location} = err;
       dispatch(fetchRequestsError(err));  
       if (reason === 'ValidationError') {
-        // Convert ValidationErrors into SubmissionErrors for Redux Form
         return Promise.reject(
           new SubmissionError({
             [location]: message
@@ -125,7 +123,6 @@ export const createRequest = request => (dispatch, getState) => {
     const {reason, message, location} = err;
     dispatch(createRequestError(err));  
     if (reason === 'ValidationError') {
-      // Convert ValidationErrors into SubmissionErrors for Redux Form
       return Promise.reject(
         new SubmissionError({
           [location]: message
@@ -159,7 +156,6 @@ export const cancelRequest = id => (dispatch, getState) => {
     const {reason, message, location} = err;
     dispatch(cancelRequestError(err));  
     if (reason === 'ValidationError') {
-      // Convert ValidationErrors into SubmissionErrors for Redux Form
       return Promise.reject(
         new SubmissionError({
           [location]: message
@@ -193,7 +189,6 @@ export const resubmitRequest = id => (dispatch, getState) => {
     const {reason, message, location} = err;
     dispatch(resubmitRequestError(err));  
     if (reason === 'ValidationError') {
-      // Convert ValidationErrors into SubmissionErrors for Redux Form
       return Promise.reject(
         new SubmissionError({
           [location]: message

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
 export function LogoutPage(props) {
-  // If we are logged in redirect to the user's dashboard
   if (props.loggedIn) {
     return <Redirect to="/" />;
   }

@@ -37,7 +37,6 @@ export const createAccount = user => dispatch => {
       const {reason, message, location} = err;
       dispatch(registrationError(err));  
       if (reason === 'ValidationError') {
-        // Convert ValidationErrors into SubmissionErrors for Redux Form
         return Promise.reject(
           new SubmissionError({
             [location]: message

@@ -23,8 +23,7 @@ export class App extends React.Component {
         <Footer />
       </div>
     );
-  }
-}
+  }}
 
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking

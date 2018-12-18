@@ -19,7 +19,6 @@ const store = createStore (
   applyMiddleware(thunk),
   ));
 
-//Hydrate the authToken from localStorage if it exists
 const authToken = loadAuthToken();
 if (authToken) {
   const token = authToken;
