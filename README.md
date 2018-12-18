@@ -55,11 +55,11 @@ An app to simplify and automate the inventory management of the hardware assets 
 
 This is the frontend for this app.  **_[The backend can be found here.](https://github.com/JemDobro/asset-manager-server/ "Asset Inventory Manager Backend")_**
 
-All components live in the src directory. 
-
-The app houses the navigation bar, header, the landing page, the create account page, the login page, and the footer.  
-The landing page houses the dashboard.
-The dashboard houses the request page, which is only visible if the user is requesting assets.
-The navigation bar and header are always visible.
-The footer is always visible at the very bottom.
+## Key Components
+ * All components live in the src directory. 
+ * The app houses the navigation bar, header, the landing page, the create account page, the login page, and the footer.  
+ * The landing page houses the dashboard.
+ * The dashboard houses the request page, which is only visible if the user is requesting assets.
+ * The navigation bar and header are always visible.
+ * The footer is always visible at the very bottom.
 
