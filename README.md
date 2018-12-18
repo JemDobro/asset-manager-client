@@ -1,6 +1,6 @@
 ![Asset Manager Logo][logo]
 
-[logo]: img/icon-left-font-cropped-readme.png
+[logo]: img/logo.png
 
 # Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own. 
