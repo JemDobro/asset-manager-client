@@ -1,33 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import { clearAuthToken } from '../local-storage';
-import './header-bar.css';
+import '../styles/headerBar.css';
 
-
-export class HeaderBar extends React.Component {
-  logOut() {
-    this.props.dispatch(clearAuth());
-    clearAuthToken();
-  }
-  render() {
-    let logOutButton;
-    if (this.props.loggedIn) {
-      logOutButton = (
-        <button className='logout' onClick={() => this.logOut()}>Log out</button>
-      );
-    }
-    return (
-      <div className="header-bar">
-        <h1>Welcome to Asset Inventory Manager</h1>
-        {logOutButton}
-      </div>
-    );
-  }
+export default function HeaderBar(props) {  
+  return (
+    <header className="header-bar" role="banner">
+      <img className='header-bar-img' src='https://res.cloudinary.com/cozyspaces/image/upload/v1544465885/multi_ipad_dock.jpg' alt='multiple organized ipads' />
+    </header>
+  );
 }
-
-const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
-});
-
-export default connect(mapStateToProps)(HeaderBar);

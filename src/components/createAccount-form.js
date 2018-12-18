@@ -1,6 +1,6 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
-import {createAccount} from '../actions/users';
+import {reduxForm, Field, focus} from 'redux-form';
+import {createAccount} from '../actions/registration';
 import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, isTrimmed, length, matches} from '../validators';
@@ -16,12 +16,30 @@ export class CreateAccountForm extends React.Component {
       .then(() => this.props.dispatch(login(username, password)));
   }
   render() {
+    let error;
+    if (this.props.error) {
+      error = (
+        <div className="form-error" aria-live="polite">
+          {this.props.error}
+        </div>
+      );
+    }
+    let success;
+    if (this.props.submitSucceeded) {
+      success = (
+        <div className="form-success" aria-live="polite">
+          <p>Information submitted successfully</p>
+        </div>
+      )
+    }
     return(
       <form 
         className="createAccount-form"
         onSubmit={this.props.handleSubmit(values =>
           this.onSubmit(values)
         )}>
+        {error}
+        {success}
         <label htmlFor="firstName">First Name</label>
         <Field 
           name="firstName" 
@@ -44,7 +62,7 @@ export class CreateAccountForm extends React.Component {
           validate={[required, nonEmpty, isTrimmed]}
         />
         <label htmlFor="badgeId">Badge Id</label>
-        <Field 
+        <Field
           name="badgeId" 
           type="text" 
           component={Input} 
@@ -82,5 +100,7 @@ export class CreateAccountForm extends React.Component {
 }
 
 export default reduxForm({
-  form: 'createAccount'
+  form: 'createAccount',
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus('createAccount', Object.keys(errors)[0]))
 })(CreateAccountForm);

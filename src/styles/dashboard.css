@@ -1,0 +1,70 @@
+h2 {
+  padding: 0px;
+}
+
+button.request-assets-btn{
+  width: 75%;
+}
+
+button.request-assets-btn-li {
+  width: 100%;
+  margin: 0px;
+  background:rgb(14, 14, 75);
+  color: white;
+  font-weight: 400;
+}
+
+button.request-assets-btn-li:hover {
+  border-color: rgb(83, 134, 60);
+  background-color: white;
+  color: rgb(14, 14, 75);
+}
+
+ul{
+  list-style-type: none;
+}
+.status ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  background-color: white;
+  color:  rgb(14, 14, 75);
+  border: 2px rgb(14, 14, 75) solid;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2x;
+  border-radius: 2px;
+} 
+
+.status li{
+  background-color: white;
+  color:  rgb(14, 14, 75);
+  width: 75%;
+  padding: 10px;
+  margin: 5px 1px;
+  border: 2px rgb(56, 92, 40) solid;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2x;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 600px){
+  .status ul {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  } 
+  .status li {
+    max-width: 49%;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .status li {
+    max-width: 33%;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .status li {
+    max-width: 24%;
+  }
+}

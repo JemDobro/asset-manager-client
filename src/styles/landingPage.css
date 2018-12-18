@@ -1,0 +1,49 @@
+.landing-page-main {
+  flex-direction: column;
+  align-content: center;
+}
+
+.intro {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.landing-page-section {
+  width: 100%;
+}
+
+h2, h3, p {
+  padding: 0px 20px;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+h3.blue {
+  border-bottom: 2px rgb(14, 14, 75) solid;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+ul.li-bullets {
+  list-style: square;
+}
+
+@media screen and (min-width: 700px){
+  .landing-page-main {
+    flex-flow: row wrap;
+  }
+  .landing-page-section {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .intro {
+    padding-bottom: 30px;
+  }
+}

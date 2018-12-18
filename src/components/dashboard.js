@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import requiresLogin from './requires-login';
-import {fetchProtectedData, cancelRequest, resubmitRequest} from '../actions/protected-data';
+import {fetchRequests, cancelRequest, resubmitRequest, toggleRequestingAssets} from '../actions/requests';
+import RequestFormPage from './request-form-page';
 import moment from 'moment';
-import './dashboard.css';
+import '../styles/dashboard.css';
 
 export class Dashboard extends React.Component {
   componentDidMount() {
     return (
-    this.props.dispatch(fetchProtectedData()));    
+    this.props.dispatch(fetchRequests()));    
   }
 
   render() {
@@ -17,39 +17,66 @@ export class Dashboard extends React.Component {
       return moment.utc(datestr).format('MMMM Do YYYY');
     }  
 
+    let intro;
+    if (this.props.requesting) {
+      intro = (
+        <section className="intro">
+          <RequestFormPage />
+          <h2>{`Your current dashboard:`}</h2>
+        </section>
+      )
+    } else {
+      intro = (
+        <section className="intro">
+          <h2>{`Welcome to your dashboard ${this.props.firstName}!`}</h2>
+          <button className="request-assets-btn" onClick={() => this.props.dispatch(toggleRequestingAssets())}>Request Assets</button>
+        </section>
+      )
+    }
+
     return (
-      <div className="dashboard">
-        <h2>{`Welcome ${this.props.firstName}!`}</h2>
-        <button><Link className='request-form' to="/requestForm">Request Assets</Link></button>
-        <div>
-          <h3>Your Dashboard:</h3>
-          <p>{`Checked Out: ${(this.props.protectedData.filter(req => req.status === 'checked out')).length}`}</p>
+      <main className="dashboard" role="main">
+        {intro}
+        <section className="status">
+          <h3>{`Checked Out: ${(this.props.requests.filter(req => req.status === 'checked out')).length}`}</h3>
             <ul>
-            {(this.props.protectedData.filter(req => req.status === 'checked out')).map( req => 
+            {(this.props.requests.filter(req => req.status === 'checked out')).map( req => 
             <li key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
             {`Date Due: ${format_date(req.end)}`} </li>)}
             </ul>
-          <p>{`Pending: ${(this.props.protectedData.filter(req => req.status === 'pending')).length}`}</p>
+        </section>
+        <section className="status">
+          <h3>{`Pending: ${(this.props.requests.filter(req => req.status === 'pending')).length}`}</h3>
             <ul className='with-btns'>
-            {(this.props.protectedData.filter(req => req.status === 'pending')).map( req => 
+            {(this.props.requests.filter(req => req.status === 'pending')).map( req => 
             <li className='with-btns' key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button className="request-assets-btn" onClick={() => this.props.dispatch(cancelRequest(req.id))}>Cancel</button></li>)}
+            <button 
+              className="request-assets-btn-li" 
+              onClick={() => this.props.dispatch(cancelRequest(req.id))
+                .then(() => this.props.dispatch(fetchRequests()))}>
+              Cancel</button></li>)}
             </ul>
-          <p>{`Cancelled: ${(this.props.protectedData.filter(req => req.status === 'cancelled')).length}`}</p>
+        </section>
+        <section className="status">
+          <h3>{`Cancelled: ${(this.props.requests.filter(req => req.status === 'cancelled')).length}`}</h3>
             <ul className='with-btns'>
-            {(this.props.protectedData.filter(req => req.status === 'cancelled')).map( req => 
+            {(this.props.requests.filter(req => req.status === 'cancelled')).map( req => 
             <li className='with-btns' key={req.id}>{req.type} - {req.model} - {req.version}<br></br>
             {`Quantity: ${req.quantity}`}<br></br>
             {`Start Date: ${format_date(req.start)}`}<br></br>
             {`End Date: ${format_date(req.end)}`}<br></br>
-            <button className="request-assets-btn" onClick={() => this.props.dispatch(resubmitRequest(req.id))}>Resubmit</button></li>)}
+            <button 
+            className="request-assets-btn-li" 
+            onClick={() => this.props.dispatch(resubmitRequest(req.id))
+              .then(() => this.props.dispatch(fetchRequests()))}>
+              Resubmit</button></li>)}
             </ul>
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 }
@@ -59,10 +86,9 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     firstName: `${currentUser.firstName}`,
-    protectedData: state.protectedData.data
+    requests: state.requests.data,
+    requesting: state.requests.requesting
   };
 };
-
-
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
