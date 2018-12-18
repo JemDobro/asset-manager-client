@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
 import {loadAuthToken} from './local-storage';
@@ -14,10 +13,9 @@ const store = createStore (
   registration: registrationReducer,
   auth: authReducer,
   requests: requestsReducer
-  }), 
-  composeWithDevTools(
+  }),
   applyMiddleware(thunk),
-  ));
+  );
 
 const authToken = loadAuthToken();
 if (authToken) {
