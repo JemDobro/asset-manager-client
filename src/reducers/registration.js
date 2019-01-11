@@ -10,20 +10,14 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  if (action.type === REGISTRATION_REQUEST) { 
-    return Object.assign({}, state, {
-      loading: true,
-      error: null
-    });
-  } else if (action.type === REGISTRATION_SUCCESS) {
-    return Object.assign({}, state, {
-      loading: false
-    });
-  } else if (action.type === REGISTRATION_ERROR) {
-    return Object.assign({}, state, {
-      loading: false,
-      error: action.err
-    });
-  } 
-  return state;
+  switch (action.type) {
+    case REGISTRATION_REQUEST:
+      return {...state, loading: true, error: null};
+    case REGISTRATION_SUCCESS:
+      return {...state, loading: false};
+    case REGISTRATION_ERROR:
+      return {...state, loading: false, error: action.err};
+    default:
+      return state;
+  }
 }
