@@ -2,10 +2,9 @@
 
 [logo]: public/img/logo.png
 
-# Asset Inventory Manager
 An app to simplify and automate the inventory management of the hardware assets of your company, allowing requestors one quick and easy place to request assets, see the status of their requests, as well as see the assets for which they are currently responsible/own.  Requestors can also cancel pending requests they no longer need, and resubmit cancelled requests should they discover they will be needing the asset after all.
 
-### **_[Live Demo](https://asset-manager-jem.herokuapp.com/ "Asset Inventory Manager")_**
+### **_[Live Demo](https://asset-manager-jem.herokuapp.com "Asset Inventory Manager")_**
 
 #### Demo account:
 ##### username: sallysomeone
