@@ -1,5 +1,10 @@
+.img-container {
+  height: 432px;
+  width: auto;
+  overflow: hidden;
+}
+
 .header-bar-img {
   border-bottom: 3px solid rgb(14, 14, 75);
   padding-top: 55px;
-  max-height: calc(90vh);
 }

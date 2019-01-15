@@ -4,6 +4,7 @@ h2 {
 
 button.request-assets-btn{
   width: 75%;
+  max-width: 350px;
 }
 
 button.request-assets-btn-li {
@@ -27,9 +28,8 @@ ul{
   display: flex;
   flex-direction: column;
   padding: 0px;
-  background-color: white;
+  background-color: transparent;
   color:  rgb(14, 14, 75);
-  border: 2px rgb(14, 14, 75) solid;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2x;
   border-radius: 2px;
