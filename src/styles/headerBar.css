@@ -1,6 +1,6 @@
 .img-container {
-  height: 432px;
-  width: auto;
+  max-height: 432px;
+  width: 100%;
   overflow: hidden;
   border-bottom: 3px solid rgb(14, 14, 75);
 }

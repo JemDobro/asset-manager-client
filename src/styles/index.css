@@ -6,7 +6,7 @@
   background-color: rgb(83, 134, 60);
 }
 
-html, body, #root, .app, img {
+html, body, #root, .app, img, .img-container {
   display: flex;
   flex-direction: column;
   width: 100%;   
