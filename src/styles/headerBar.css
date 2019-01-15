@@ -2,9 +2,9 @@
   height: 432px;
   width: auto;
   overflow: hidden;
+  border-bottom: 3px solid rgb(14, 14, 75);
 }
 
-.header-bar-img {
-  border-bottom: 3px solid rgb(14, 14, 75);
+.header-bar-img {  
   padding-top: 55px;
 }
