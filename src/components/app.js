@@ -14,7 +14,7 @@ export class App extends React.Component {
     return (
       <div className="app">
         <NavBar />
-        <HeaderBar />
+        {/* <HeaderBar /> */}
         <Route path="/" exact component={LandingPage} />
         <Route path="/createAccount" exact component={CreateAccountPage} />
         <Route path="/login" exact component={LoginFormPage} />

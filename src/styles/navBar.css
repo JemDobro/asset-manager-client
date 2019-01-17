@@ -10,6 +10,11 @@ nav {
   border-bottom: 3px solid rgb(14, 14, 75);
 }
 
+/* nav, .logo, .full-nav-ul, .nav-li {
+  background-color: rgb(14, 14, 75);
+  color: white;
+} */
+
 .icon {
   width: 53px;
 }
@@ -19,6 +24,7 @@ nav {
   flex-direction: row;
   align-self: center;
   font-size: 5vw;
+  padding-left: 5px;
 }
 
 ul.full-nav-ul {
@@ -32,7 +38,8 @@ ul.full-nav-ul {
 li {
   align-self: center;
   padding: 4px 10px;
-  color: white;
+  /* color: white; */
+  color: rgb(14, 14, 75);
   line-height: 1.15;
 }
 

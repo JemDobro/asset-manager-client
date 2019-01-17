@@ -1,10 +1,25 @@
-.img-container {
+
+/* .img-container {
   max-height: calc(50vh);
   width: 100%;
+  max-width: 1040px;
   overflow: hidden;
-  border-bottom: 3px solid rgb(14, 14, 75);
-}
-
-.header-bar-img {  
   padding-top: 55px;
-}
+  align-self: center;
+} */
+
+/* .header-bar-img {  
+  padding-top: 55px;
+  max-height: calc(50vh); 
+  width: 100%;
+  max-width: calc(100vh);
+} */
+
+/*border-bottom: 3px solid rgb(14, 14, 75);*/
+
+/* .img-container  {  
+  padding-top: 55px;
+  max-height: calc(50vh); 
+  width: 100%;
+  max-width: calc(100vh);
+} */

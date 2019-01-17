@@ -1,11 +1,27 @@
 .landing-page-main {
   flex-direction: column;
   align-content: center;
+  padding: 60px 0px 10px;
+}
+
+.header-bar-img {  
+  /* max-height: calc(50vh);  */
+  width: 100%;
+  /* max-width: calc(100vh); */
+}
+
+.img-container  {  
+  /* padding-top: 55px; */
+  /* display: flex; */
+  max-height: calc(50vh); 
+  /* width: 100%; */
+  max-width: calc(100vh);
 }
 
 .intro {
   width: 100%;
   padding-bottom: 20px;
+  justify-content: center;
 }
 
 .landing-page-section {
@@ -15,6 +31,10 @@
 h2, h3, p {
   padding: 0px 20px;
   text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
 }
 
 h3 {
@@ -40,10 +60,17 @@ ul.li-bullets {
   .landing-page-section {
     width: 50%;
   }
+  .intro {
+    width: 45%;
+  }
 }
 
 @media screen and (min-width: 1024px){
   .intro {
+    width: 45%;
     padding-bottom: 30px;
+  }
+  .img-container {
+    width: 54%;
   }
 }

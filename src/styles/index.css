@@ -2,14 +2,17 @@
   box-sizing: border-box;
   margin: 0;
   font-family: 'Assistant', sans-serif;
-  color: white;
-  background-color: rgb(83, 134, 60);
+  /* color: white;
+  background-color: rgb(83, 134, 60); */
+  color: rgb(14, 14, 75);
+  background-color: white;
 }
 
-html, body, #root, .app, img, .img-container {
+html, body, #root, .app, /*img,*/ .img-container {
   display: flex;
-  flex-direction: column;
-  width: 100%;   
+  /* flex-direction: column; */
+  flex-flow: row wrap;
+  width: 100%;
   line-height: 1.5;
 } 
 
@@ -32,12 +35,16 @@ section {
 }
 
 a {
-  color: white;
+  /* color: white; */
+  color: rgb(14, 14, 75);
   text-decoration: none;
 }
 
 a:hover {
-  color: rgb(14, 14, 75);
+  /* background-color: rgb(223, 222, 222); */
+  color: rgb(9, 106, 185); /*#096ab9*/
+  font-weight: bolder;
+  /* color: white; */
 }
 
 p {

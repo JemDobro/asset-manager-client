@@ -11,6 +11,9 @@ export function LandingPage(props) {
 }
   return (
     <main className="landing-page-main" role="main">
+      <div className="img-container">
+        <img className='header-bar-img' src='https://res.cloudinary.com/cozyspaces/image/upload/v1547691969/multi_ipad_dock-cropped.jpg' alt='mulitple docked ipads' />
+      </div>
       <section className="intro">
         <h2>Welcome!</h2>
         <h3>Asset Inventory Manager is your tool for requesting and managing any hardware needed to complete your work.</h3>
